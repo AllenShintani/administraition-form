@@ -84,7 +84,8 @@ const Home: NextPage = () => {
     
     <button onClick={cancel}>
       <strong>no</strong>
-    </button></Grid>
+    </button>
+    </Grid>
     
     </Container>
   )
