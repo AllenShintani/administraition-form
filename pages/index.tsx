@@ -62,17 +62,16 @@ const Home: NextPage = () => {
     </h3>
    </Grid>
 
-      <Grid><button onClick={pm} >
-      <strong>ok</strong>
+    <Grid><button onClick={pm} >
+    <strong>ok</strong>
     </button>
     
     <button onClick={cancel}>
-      <strong>no</strong>
+    <strong>no</strong>
     </button>
     </Grid>
     
     </Container>
   )
 }
-
 export default Home
