@@ -27,23 +27,7 @@ const Grid = styled.div`
     width: 100%;
   }
 
-  :hover,
-  :focus,
-  :active {
-    color: #0070f3;
-    border-color: #0070f3;
-  }
-
-  h2 {
-    margin: 0 0 1rem;
-    font-size: 1.5rem;
-  }
-
-  p {
-    margin: 0;
-    font-size: 1.25rem;
-    line-height: 1.5;
-  }
+ 
 `
 
 
