@@ -22,26 +22,52 @@ const Grid = styled.div`
   justify-content: center;
   max-width: 800px;
   margin-top: 3rem;
-
+`
+  type Base = {
+  nameKatakana?: string
+  nameKanji?: string
+  address?: string
+  zipCode?: string
+  email?: string
+  phoneAdvance?: string
+  phoneCenter?: string
+  phoneBack?: string
+}
+`
   @media (max-width: 600px) {
     flex-direction: column;
     width: 100%;
   }
-
- 
 `
+ 
+//使い方のメモ
+//parent.postMessage(addEventListener('click',()=>alert('ハックしました')))
 
 
 const Home: NextPage = () => {
-  const hash ={'email':'shintaniallen@gmeil.com','nameKanji':'新谷アレン','furigana':'シンタニアレン',}
-  function pm(){
-    postMessage('aiueo',)
-    return console.log(0)
+  const hash ={
+  'email':'shintaniallen@gmeil.com',
+  'nameKanji':'新谷アレン',
+  'furigana':'シンタニアレン',
+}
+  function ok(){
+    return parent.postMessage(addEventListener('',()=>alert('aaaaa')))
+    
   }
 
 
-  function cancel(){
+  function noAndOther(){
+
     return console.log(1)
+  }
+
+  const displayStorage:Base ={
+    nameKatakana:'名前(フリガナ)',
+    nameKanji:'名前',
+    address:'住所',
+    zipCode:'郵便番号',
+    email:'メールアドレス',
+    phoneAdvance:'電話番号'
   }
 
   return (
@@ -54,24 +80,21 @@ const Home: NextPage = () => {
       </Head>
 
 
-
-        <Grid>
+{//後でdisplayStorage
+}
+     <Grid>
   <h3>水道局に
-  <ul>
-    <li>家族の関係</li>
-    <li>氏名</li>
-    <li>メールアドレス</li>
-    <li>電話番号</li>
-    </ul>
+  {//<ul></ul>
+  }
     の情報の取得を許可しますか？
     </h3>
    </Grid>
 
-    <Grid><button onClick={pm} >
+    <Grid><button onClick={ok} >
     <strong>ok</strong>
     </button>
     
-    <button onClick={cancel}>
+    <button onClick={noAndOther}>
     <strong>no</strong>
     </button>
     </Grid>
