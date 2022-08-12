@@ -55,7 +55,6 @@ const Home: NextPage = () => {
     
   }
 
-
   function noAndOther(){
 
     return console.log(1)
