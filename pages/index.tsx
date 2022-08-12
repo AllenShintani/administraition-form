@@ -61,14 +61,14 @@ const Home: NextPage = () => {
     return console.log(1)
   }
 
-  const displayStorage:Base ={
-    nameKatakana:'名前(フリガナ)',
-    nameKanji:'名前',
-    address:'住所',
-    zipCode:'郵便番号',
-    email:'メールアドレス',
-    phoneAdvance:'電話番号'
-  }
+  //const displayStorage:Base ={
+   // nameKatakana:'名前(フリガナ)',
+   // nameKanji:'名前',
+   // address:'住所',
+    //zipCode:'郵便番号',
+   // email:'メールアドレス',
+   // phoneAdvance:'電話番号'
+  //}
 
   return (
     <Container>
