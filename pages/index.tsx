@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { useState } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -41,14 +42,36 @@ type Base = {
 //parent.postMessage(addEventListener('click',()=>alert('ハックしました')))
 
 const Home: NextPage = () => {
+  const key = 'serviceX'
+
+  const [href, setHref] = useState('')
+  const [data, setData] = useState<(keyof Base)[]>([])
+
   const hash = {
     email: 'shintaniallen@gmail.com',
     nameKanji: '新谷アレン',
     furigana: 'シンタニアレン',
   }
-  function ok() {
-    return parent.postMessage(addEventListener('', () => alert('aaaaa')))
+
+  //iframeでokを押したら
+  const ok = () => {
+    const getjson1 = localStorage.getItem(key)
+    if (getjson1) {
+      const getjson2: Base = JSON.parse(getjson1)
+      const postData: Base = {}
+      data.map((d) => {
+        postData[d] = getjson2[`${d}`]
+      })
+      parent.postMessage({ type: 'storage', val: postData }, href)
+    } else {
+      parent.postMessage({ type: 'storage', val: getjson1 }, href)
+    }
   }
+
+  /*function ok() {
+    const 
+    parent.postMessage(addEventListener('click', () => alert('aaaaa')))
+    return*/
 
   function noAndOther() {
     return console.log(1)
