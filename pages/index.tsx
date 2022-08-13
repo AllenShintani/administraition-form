@@ -1,8 +1,5 @@
-import { STATUS_CODES } from 'http'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useState } from 'react'
-import { addAbortSignal } from 'stream'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -58,13 +55,12 @@ const Home: NextPage = () => {
   }
  */
 
-
   /*function ok() {
     const 
     parent.postMessage(addEventListener('click', () => alert('aaaaa')))
     return*/
 
-/* obj = {
+  /* obj = {
   last : tarou,
   first : satou
 };
@@ -72,10 +68,9 @@ var obj = JSON.stringify(obj);
 localStorage.setItem('aaa',obj)
 */
 
-
   function ok() {
-    localStorage.setItem('aaa','hello')
-    const length =localStorage.length;
+    localStorage.setItem('aaa', 'hello')
+    const length = localStorage.length
     console.log(length)
   }
 
@@ -126,7 +121,6 @@ localStorage.setItem('aaa',obj)
   )
 }
 export default Home
-
 
 /*----localstrageのメモ
 注意したいのが複数の値（配列）を保存した場合は、JSON文字列に変換する必要があるということです。
