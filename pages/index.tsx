@@ -1,6 +1,8 @@
+import { STATUS_CODES } from 'http'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useState } from 'react'
+import { addAbortSignal } from 'stream'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -43,35 +45,39 @@ type Base = {
 
 const Home: NextPage = () => {
   const key = 'serviceX'
-
-  const [href, setHref] = useState('')
-  const [data, setData] = useState<(keyof Base)[]>([])
-
-  const hash = {
+  /*const hash = {
     email: 'shintaniallen@gmail.com',
-    nameKanji: '新谷アレン',
-    furigana: 'シンタニアレン',
+    nameKanji: '佐藤太郎',
+    furigana: 'サトウタロウ',
   }
+  */
 
   //iframeでokを押したら
-  const ok = () => {
-    const getjson1 = localStorage.getItem(key)
-    if (getjson1) {
-      const getjson2: Base = JSON.parse(getjson1)
-      const postData: Base = {}
-      data.map((d) => {
-        postData[d] = getjson2[`${d}`]
-      })
-      parent.postMessage({ type: 'storage', val: postData }, href)
-    } else {
-      parent.postMessage({ type: 'storage', val: getjson1 }, href)
-    }
+
+  /*const ok = () => {
   }
+ */
+
 
   /*function ok() {
     const 
     parent.postMessage(addEventListener('click', () => alert('aaaaa')))
     return*/
+
+/* obj = {
+  last : tarou,
+  first : satou
+};
+var obj = JSON.stringify(obj);
+localStorage.setItem('aaa',obj)
+*/
+
+
+  function ok() {
+    localStorage.setItem('aaa','hello')
+    const length =localStorage.length;
+    console.log(length)
+  }
 
   function noAndOther() {
     return console.log(1)
@@ -120,3 +126,30 @@ const Home: NextPage = () => {
   )
 }
 export default Home
+
+
+/*----localstrageのメモ
+注意したいのが複数の値（配列）を保存した場合は、JSON文字列に変換する必要があるということです。
+*/
+
+/*------localStrageの内容をページを読み込んだ時に再度表示される（消えない）
+	var readMemo = function(){
+		var memoObjs = getStorage(storageKey);
+		if (memoObjs.length == null) return;
+		for (var i = 0; i < memoObjs.length; i ++) {
+			var memoObj = memoObjs[i];
+			var ttl = memoObj.ttl;
+			var bdy = memoObj.bdy;
+			var memoObj = {
+				ttl : ttl,
+				bdy : bdy
+			};
+		memoArr.push(memoObj);
+		saveStorage(storageKey,memoArr);
+			addMemo(ttl,bdy);
+		}
+	};
+
+	//ページ読込み時にメモ復帰
+	readMemo();
+  */
