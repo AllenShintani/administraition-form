@@ -69,9 +69,9 @@ localStorage.setItem('aaa',obj)
 */
 
   function ok() {
-    localStorage.setItem('aaa', 'hello')
-    const length = localStorage.length
-    console.log(length)
+    const indivInfo = localStorage.getItem('suido')
+    console.log(indivInfo)
+ 
   }
 
   function noAndOther() {
