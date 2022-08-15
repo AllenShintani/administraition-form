@@ -76,11 +76,11 @@ localStorage.setItem('aaa',obj)
       'https://suidonet.waterworks.metro.tokyo.lg.jp/inet-service/uketsuke/useStart/inputApplicantInfo'
     ) //idじゃなくてサイトのURLだよ！
 
-    localStorage.setItem('info', 'postToIframe')
+    const info = localStorage.setItem('info', 'postToIframe')
     const indivInfo = localStorage.getItem(
       'https://suidonet.waterworks.metro.tokyo.lg.jp/inet-service/uketsuke/useStart/inputApplicantInfo'
     )
-    console.log('info')
+    console.log(info)
     console.log(indivInfo)
   }
 
