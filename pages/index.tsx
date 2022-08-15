@@ -80,6 +80,7 @@ localStorage.setItem('aaa',obj)
     const indivInfo = localStorage.getItem(
       'https://suidonet.waterworks.metro.tokyo.lg.jp/inet-service/uketsuke/useStart/inputApplicantInfo'
     )
+    console.log('info')
     console.log(indivInfo)
   }
 
