@@ -69,9 +69,10 @@ localStorage.setItem('aaa',obj)
 */
 
   function ok() {
-    const indivInfo = localStorage.getItem('suido')
+    const indivInfo = localStorage.getItem(
+      'https://suidonet.waterworks.metro.tokyo.lg.jp/inet-service/uketsuke/useStart/inputApplicantInfo'
+    )
     console.log(indivInfo)
- 
   }
 
   function noAndOther() {
