@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { useEffect } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -96,6 +97,11 @@ localStorage.setItem('aaa',obj)
     email: 'メールアドレス',
     phoneAdvance: '電話番号',
   }
+  useEffect(() => {
+    window.addEventListener('message', (event) => {
+      console.log('reactにpostMessageがきたよ！', event)
+    })
+  }, [])
 
   return (
     <Container>
