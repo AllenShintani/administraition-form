@@ -69,6 +69,14 @@ localStorage.setItem('aaa',obj)
 */
 
   function ok() {
+    // 親へメッセージを送信
+    // postMessage(<送信する値>, <送信先のドメイン>)
+    window.parent.postMessage(
+      '任意のメッセー',
+      'https://suidonet.waterworks.metro.tokyo.lg.jp/inet-service/uketsuke/useStart/inputApplicantInfo'
+    ) //idじゃなくてサイトのURLだよ！
+
+    localStorage.setItem('info', 'postToIframe')
     const indivInfo = localStorage.getItem(
       'https://suidonet.waterworks.metro.tokyo.lg.jp/inet-service/uketsuke/useStart/inputApplicantInfo'
     )
