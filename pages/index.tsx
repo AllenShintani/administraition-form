@@ -77,6 +77,7 @@ localStorage.setItem('aaa',obj)
     const serveINfo = []
     setProt(prot + 1)
     console.log('a')
+    console.log(prot)
   }
   function noAndOther() {
     return console.log(1)
