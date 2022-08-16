@@ -77,7 +77,7 @@ localStorage.setItem('aaa',obj)
     console.log(prot)
     parent.postMessage(
       addEventListener('click', () => {
-        alert('準備いいよ！')
+        parent.postMessage('ready', '*')
       })
     )
   }
@@ -95,9 +95,8 @@ localStorage.setItem('aaa',obj)
   }
 
   useEffect(() => {
-    window.addEventListener('message', (serve) => {
+    window.addEventListener('message', () => {
       console.log('react完全に理解した')
-      console.log(serve)
     })
   }, [prot])
 
