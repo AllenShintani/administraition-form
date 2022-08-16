@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { useEffect } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -86,11 +87,12 @@ localStorage.setItem('aaa',obj)
     phoneAdvance: '電話番号',
   }
 
-  window.addEventListener('message', (serve) => {
-    console.log('react完全に理解した')
-    console.log(serve)
-    return
-  })
+  useEffect(() => {
+    window.addEventListener('message', (serve) => {
+      console.log('react完全に理解した')
+      console.log(serve)
+    })
+  }, [])
 
   return (
     <Container>
