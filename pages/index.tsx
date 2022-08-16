@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useEffect } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -70,21 +69,10 @@ localStorage.setItem('aaa',obj)
 */
 
   function ok() {
-    // 親へメッセージを送信
-    // postMessage(<送信する値>, <送信先のドメイン>)
-    window.parent.postMessage(
-      '任意のメッセー',
-      'https://suidonet.waterworks.metro.tokyo.lg.jp/inet-service/uketsuke/useStart/inputApplicantInfo'
-    ) //idじゃなくてサイトのURLだよ！
-
-    const info = localStorage.setItem('info', 'postToIframe')
-    const indivInfo = localStorage.getItem(
-      'https://suidonet.waterworks.metro.tokyo.lg.jp/inet-service/uketsuke/useStart/inputApplicantInfo'
-    )
-    console.log(info)
-    console.log(indivInfo)
+    const getjson = localStorage.getItem('https://suidonet.waterworks.metro.tokyo.lg.jp')
+    parent.postMessage(getjson, 'https://suidonet.waterworks.metro.tokyo.lg.jp')
+    const serveINfo = []
   }
-
   function noAndOther() {
     return console.log(1)
   }
@@ -97,11 +85,12 @@ localStorage.setItem('aaa',obj)
     email: 'メールアドレス',
     phoneAdvance: '電話番号',
   }
-  useEffect(() => {
-    window.addEventListener('message', (event) => {
-      console.log('reactにpostMessageがきたよ！', event)
-    })
-  }, [])
+
+  window.addEventListener('message', (serve) => {
+    console.log('react完全に理解した')
+    console.log(serve)
+    return
+  })
 
   return (
     <Container>
