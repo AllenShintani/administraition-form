@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -69,10 +69,14 @@ var obj = JSON.stringify(obj);
 localStorage.setItem('aaa',obj)
 */
 
+  const [prot, setProt] = useState(0)
+
   function ok() {
     const getjson = localStorage.getItem('https://suidonet.waterworks.metro.tokyo.lg.jp')
     parent.postMessage(getjson, 'https://suidonet.waterworks.metro.tokyo.lg.jp')
     const serveINfo = []
+    setProt(prot + 1)
+    console.log('a')
   }
   function noAndOther() {
     return console.log(1)
@@ -92,7 +96,7 @@ localStorage.setItem('aaa',obj)
       console.log('react完全に理解した')
       console.log(serve)
     })
-  }, [])
+  }, [prot])
 
   return (
     <Container>
