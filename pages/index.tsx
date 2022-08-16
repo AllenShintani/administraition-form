@@ -99,7 +99,7 @@ localStorage.setItem('aaa',obj)
       console.log('react完全に理解した')
       console.log(serve)
     })
-  })
+  }, [prot])
 
   return (
     <Container>
