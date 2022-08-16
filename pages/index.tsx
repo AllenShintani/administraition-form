@@ -72,8 +72,6 @@ localStorage.setItem('aaa',obj)
   const [prot, setProt] = useState(0)
 
   function ok() {
-    const getjson = localStorage.getItem('https://suidonet.waterworks.metro.tokyo.lg.jp')
-    parent.postMessage(getjson, 'https://suidonet.waterworks.metro.tokyo.lg.jp')
     const serveINfo = []
     setProt(prot + 1)
     console.log('a')
