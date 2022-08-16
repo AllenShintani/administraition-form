@@ -75,6 +75,11 @@ localStorage.setItem('aaa',obj)
     setProt(prot + 1)
     console.log('a')
     console.log(prot)
+    parent.postMessage(
+      addEventListener('click', () => {
+        alert('準備いいよ！')
+      })
+    )
   }
   function noAndOther() {
     return console.log(1)
