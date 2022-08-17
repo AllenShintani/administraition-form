@@ -90,15 +90,14 @@ localStorage.setItem('aaa',obj)
   }
 
   useEffect(() => {
-    let unmounted = false
-    if (unmounted === false) {
-      window.addEventListener('message', () => {
-        console.log('react完全に理解した')
-      })
-      unmounted = true
-    }
-  })
+    const serve = () => console.log('react完全に理解した')
 
+    window.addEventListener('message', serve)
+
+    return () => {
+      window.removeEventListener('message', serve)
+    }
+  }, [])
   return (
     <Container>
       {
