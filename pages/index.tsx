@@ -74,7 +74,7 @@ localStorage.setItem('aaa',obj)
     const serveINfo = []
     setProt(prot + 1)
     console.log(prot)
-    addEventListener('message', () => {
+    addEventListener('click', () => {
       parent.postMessage('ready', '*')
     })
   }
