@@ -73,7 +73,6 @@ localStorage.setItem('aaa',obj)
   function ok() {
     const serveINfo = []
     setProt(prot + 1)
-    console.log(prot)
     console.log('aa')
     parent.postMessage('ready', '*')
   }
