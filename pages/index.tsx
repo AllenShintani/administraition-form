@@ -91,17 +91,11 @@ localStorage.setItem('aaa',obj)
 
   useEffect(() => {
     let unmounted = false
-    ;() => {
-      if (!unmounted) {
-        window.addEventListener('message', () => {
-          console.log('react完全に理解した')
-        })
-      }
-    }
-    return () => {
-      {
-        unmounted = true
-      }
+    if (unmounted === false) {
+      window.addEventListener('message', () => {
+        console.log('react完全に理解した')
+      })
+      unmounted = true
     }
   })
 
