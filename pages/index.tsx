@@ -75,6 +75,7 @@ localStorage.setItem('aaa',obj)
     setProt(prot + 1)
     console.log(prot)
     addEventListener('click', () => {
+      console.log('aa')
       parent.postMessage('ready', '*')
     })
   }
