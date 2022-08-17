@@ -93,7 +93,7 @@ localStorage.setItem('aaa',obj)
     window.addEventListener('message', () => {
       console.log('react完全に理解した')
     })
-  }, [prot])
+  })
 
   return (
     <Container>
