@@ -74,10 +74,8 @@ localStorage.setItem('aaa',obj)
     const serveINfo = []
     setProt(prot + 1)
     console.log(prot)
-    addEventListener('click', () => {
-      console.log('aa')
-      parent.postMessage('ready', '*')
-    })
+    console.log('aa')
+    parent.postMessage('ready', '*')
   }
   function noAndOther() {
     return console.log(1)
