@@ -94,10 +94,8 @@ localStorage.setItem('aaa',obj)
 
     window.addEventListener('message', serve)
 
-    return () => {
-      window.removeEventListener('message', serve)
-    }
-  }, [])
+    //  window.removeEventListener('message', serve)
+  }, [prot])
   return (
     <Container>
       {
