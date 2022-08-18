@@ -91,7 +91,7 @@ localStorage.setItem('aaa',obj)
     const serve = () => console.log('react完全に理解した')
     window.addEventListener('message', serve)
     return window.removeEventListener('message', serve)
-  }, [prot])
+  }, [])
 
   return (
     <Container>
