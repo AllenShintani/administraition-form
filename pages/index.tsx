@@ -71,6 +71,7 @@ localStorage.setItem('aaa',obj)
   const [prot, setProt] = useState(0)
 
   console.log('hey!')
+  const a = 1
   function ok() {
     const serveINfo = []
     setProt(prot + 1)
@@ -94,7 +95,7 @@ localStorage.setItem('aaa',obj)
     const serve = () => console.log('react完全に理解した')
 
     window.addEventListener('message', serve)
-
+    console.log('yahhooooo')
     return console.log('これどこ')
 
     //  window.removeEventListener('message', serve)
