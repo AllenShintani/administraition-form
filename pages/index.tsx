@@ -94,6 +94,8 @@ localStorage.setItem('aaa',obj)
 
     window.addEventListener('message', serve)
 
+    return console.log('これどこ')
+
     //  window.removeEventListener('message', serve)
   }, [prot])
   return (
