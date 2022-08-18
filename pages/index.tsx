@@ -91,8 +91,13 @@ localStorage.setItem('aaa',obj)
     const serve = () => console.log('react完全に理解した')
     window.addEventListener('message', serve)
     console.log('a')
-    return window.removeEventListener('message', serve)
+    //return window.removeEventListener('message', serve)
   })
+  //第2引数がないときは初回レンダー時のみ実行
+  //[]が空の時は初回のレンダリングと毎回のレンダリング時に実行
+  //[]にｘを入れるとｘが変わった時だけレンダリングの最後に実行
+  //addEventListenerはremoveしないと溜まっていく（重複した処理
+  //重複したaddEventListhnerはもう一度実行にならないと溜まってた分の処理が行われない
 
   return (
     <Container>
