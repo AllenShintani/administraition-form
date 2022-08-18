@@ -70,6 +70,7 @@ localStorage.setItem('aaa',obj)
 
   const [prot, setProt] = useState(0)
 
+  console.log('hey!')
   function ok() {
     const serveINfo = []
     setProt(prot + 1)
