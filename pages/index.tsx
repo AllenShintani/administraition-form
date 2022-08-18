@@ -90,8 +90,9 @@ localStorage.setItem('aaa',obj)
   useEffect(() => {
     const serve = () => console.log('react完全に理解した')
     window.addEventListener('message', serve)
+    console.log('a')
     return window.removeEventListener('message', serve)
-  }, [])
+  })
 
   return (
     <Container>
