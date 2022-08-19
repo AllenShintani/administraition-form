@@ -70,11 +70,15 @@ localStorage.setItem('aaa',obj)
 */
 
   const [prot, setProt] = useState('')
+  const [once, setOnce] = useState(0)
 
-  parent.postMessage('ready', '*')
+  if (once === 0) {
+    setOnce(1)
+  }
 
   function ok() {
     console.log(prot)
+    parent.postMessage('ready', '*')
   }
 
   function noAndOther() {
@@ -96,12 +100,13 @@ localStorage.setItem('aaa',obj)
       setProt(needData)
       console.log(needData)
     })
+    console.log(once)
     console.log('useEffectが')
     return window.removeEventListener('message', (serve) => {
       const needData = serve.data
       setProt(needData)
     })
-  }, [])
+  }, [once])
 
   //useEffect
   //第2引数がないときは初回レンダー時のみ実行
