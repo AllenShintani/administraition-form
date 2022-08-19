@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { useEffect, useState } from 'react'
+import { useMemo, useState } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -90,17 +90,20 @@ localStorage.setItem('aaa',obj)
     phoneAdvance: '電話番号',
   }
 
-  useEffect(() => {
+  useMemo(() => {
     window.addEventListener('message', (serve) => {
       const needData = serve.data
       setProt(needData)
+      console.log(needData)
     })
-    console.log('a')
+    console.log('useEffectが')
     return window.removeEventListener('message', (serve) => {
       const needData = serve.data
       setProt(needData)
     })
   }, [])
+
+  //useEffect
   //第2引数がないときは初回レンダー時のみ実行
   //[]が空の時は初回のレンダリングと毎回のレンダリング時に実行
   //[]にｘを入れるとｘが変わった時だけレンダリングの最後に実行
