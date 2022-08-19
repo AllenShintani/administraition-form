@@ -41,6 +41,7 @@ type Base = {
 //parent.postMessage(addEventListener('click',()=>alert('ハックしました')))
 
 const Home: NextPage = () => {
+  const [href, setHref] = useState('')
   const key = 'serviceX'
   /*const hash = {
     email: 'shintaniallen@gmail.com',
@@ -68,10 +69,12 @@ var obj = JSON.stringify(obj);
 localStorage.setItem('aaa',obj)
 */
 
-  const [prot, setProt] = useState(0)
+  const [prot, setProt] = useState('')
+
+  parent.postMessage('ready', '*')
 
   function ok() {
-    parent.postMessage('ready', '*')
+    console.log(prot)
   }
 
   function noAndOther() {
@@ -88,11 +91,16 @@ localStorage.setItem('aaa',obj)
   }
 
   useEffect(() => {
-    const serve = () => console.log('react完全に理解した')
-    window.addEventListener('message', serve)
+    window.addEventListener('message', (serve) => {
+      const needData = serve.data
+      setProt(needData)
+    })
     console.log('a')
-    //return window.removeEventListener('message', serve)
-  })
+    return window.removeEventListener('message', (serve) => {
+      const needData = serve.data
+      setProt(needData)
+    })
+  }, [])
   //第2引数がないときは初回レンダー時のみ実行
   //[]が空の時は初回のレンダリングと毎回のレンダリング時に実行
   //[]にｘを入れるとｘが変わった時だけレンダリングの最後に実行
