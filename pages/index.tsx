@@ -74,12 +74,12 @@ localStorage.setItem('aaa',obj)
 
   //初回に準備ができたこと教える
   if (once === 0) {
-    parent.postMessage('ready', '*')
     setOnce(1)
   }
 
   function ok() {
     console.log(prot)
+    parent.postMessage('ready', '*')
   }
 
   function noAndOther() {
