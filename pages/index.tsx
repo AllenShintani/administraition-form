@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -94,7 +94,7 @@ localStorage.setItem('aaa',obj)
     phoneAdvance: '電話番号',
   }
 
-  useMemo(() => {
+  useEffect(() => {
     window.addEventListener('message', (serve) => {
       const needData = serve.data
       setProt(needData)
