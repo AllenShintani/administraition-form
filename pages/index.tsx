@@ -77,9 +77,16 @@ localStorage.setItem('aaa',obj)
     setOnce(1)
   }
 
+  //postMessageは関数の中じゃないと無理。
+
   function ok() {
     console.log(prot)
     parent.postMessage('ready', '*')
+    window.addEventListener('message', (first) => {
+      const needData = first.data
+      setProt(needData)
+      console.log(needData)
+    })
   }
 
   function noAndOther() {
@@ -97,14 +104,9 @@ localStorage.setItem('aaa',obj)
 
   //最初にデータ送られる
   useEffect(() => {
-    window.addEventListener('message', (first) => {
-      const needData = first.data
-      setProt(needData)
-      console.log(needData)
-    })
     console.log(once)
     console.log('useEffectが')
-    return window.removeEventListener('message', (first) => {
+   // return window.removeEventListener('message', (first) => {
       //returnの値はunmount時に実行される
       /* const needData = serve.data
       setProt(needData) */
