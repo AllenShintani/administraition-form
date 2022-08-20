@@ -77,20 +77,36 @@ localStorage.setItem('aaa',obj)
     setOnce(1)
   }
 
-  //postMessageは関数の中じゃないと無理。
+  //postMessageは関数の中じゃないと無理。addEventLisnerも。
 
   function ok() {
     console.log(prot)
     parent.postMessage('ready', '*')
+
+    serveInfo()
+  }
+
+  function noAndOther() {
+    return console.log(1)
+  }
+
+  const serveInfo = () => {
+    console.log('アロー関数だよ')
     window.addEventListener('message', (first) => {
       const needData = first.data
       setProt(needData)
       console.log(needData)
     })
+    postData()
   }
 
-  function noAndOther() {
-    return console.log(1)
+  const postData = () => {
+    console.log('postData')
+    window.addEventListener('message', (first) => {
+      const needData = first.data
+      setProt(needData)
+      console.log(needData)
+    })
   }
 
   const displayStorage: Base = {
