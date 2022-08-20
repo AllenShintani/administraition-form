@@ -72,13 +72,14 @@ localStorage.setItem('aaa',obj)
   const [prot, setProt] = useState('')
   const [once, setOnce] = useState(0)
 
+  //初回に準備ができたこと教える
   if (once === 0) {
+    parent.postMessage('ready', '*')
     setOnce(1)
   }
 
   function ok() {
     console.log(prot)
-    parent.postMessage('ready', '*')
   }
 
   function noAndOther() {
@@ -94,20 +95,27 @@ localStorage.setItem('aaa',obj)
     phoneAdvance: '電話番号',
   }
 
+  //最初にデータ送られる
   useEffect(() => {
-    window.addEventListener('message', (serve) => {
-      const needData = serve.data
+    window.addEventListener('message', (first) => {
+      const needData = first.data
       setProt(needData)
       console.log(needData)
     })
     console.log(once)
     console.log('useEffectが')
-    return window.removeEventListener('message', (serve) => {
-      const needData = serve.data
-      setProt(needData)
+    return window.removeEventListener('message', (first) => {
+      //returnの値はunmount時に実行される
+      /* const needData = serve.data
+      setProt(needData) */
+      console.log(once)
     })
-  }, [once])
+  })
 
+  /* useEffect(() => {
+    window.addEventListener('click', (second) => {})
+  }, [])
+*/
   //useEffect
   //第2引数がないときは初回レンダー時のみ実行
   //[]が空の時は初回のレンダリングと毎回のレンダリング時に実行
