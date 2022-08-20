@@ -106,12 +106,12 @@ localStorage.setItem('aaa',obj)
   useEffect(() => {
     console.log(once)
     console.log('useEffectが')
-   // return window.removeEventListener('message', (first) => {
-      //returnの値はunmount時に実行される
-      /* const needData = serve.data
+    // return window.removeEventListener('message', (first) => {
+    //returnの値はunmount時に実行される
+    /* const needData = serve.data
       setProt(needData) */
-      console.log(once)
-    })
+    console.log(once)
+    // })
   })
 
   /* useEffect(() => {
