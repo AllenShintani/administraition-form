@@ -117,14 +117,20 @@ localStorage.setItem('aaa',obj)
     //returnの値はunmount時に実行される
     /* const needData = serve.data
       setProt(needData) */
-    console.log(once)
     parent.postMessage('ready', '*')
     // })
   })
 
+  useEffect(() => {
+    window.addEventListener('message', (demand) => {
+      const demandedData = demand.data
+      console.log(demandedData)
+    })
+  })
+
   const storageIndivAdd = {
-    nameKatakana: 'シンタニアレン',
-    nameKanji: '新谷アレン',
+    nameKatakana: '佐藤太郎',
+    nameKanji: 'サトウタロウ',
     addres: '東京都文京区本郷7丁目3-1',
     email: 'aaaa@gmail.com',
     phone: '01204444445',
