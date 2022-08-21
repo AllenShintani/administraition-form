@@ -130,6 +130,9 @@ localStorage.setItem('aaa',obj)
       console.log(demandedData)
       setGive(demandedData)
     })
+    return window.removeEventListener('message', (demand) => {
+      console.log('a')
+    })
   })
 
   /* useEffect(() => {
