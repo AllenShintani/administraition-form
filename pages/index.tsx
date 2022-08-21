@@ -70,7 +70,7 @@ localStorage.setItem('aaa',obj)
 */
 
   const [give, setGive] = useState<(keyof info)[]>([])
-  const [send, setSend] = useState('')
+  const [send, setSend] = useState([''])
 
   // Map オブジェクトのサンプル
   const sampleMap = new Map<string, number>()
@@ -122,15 +122,18 @@ localStorage.setItem('aaa',obj)
 
   //データを持っているか判別
   const dataConvert = () => {
-    const giveData = console.log(give)
+    const giveData: string[] = []
     const inputData = give.map((x) => {
       if (x in storageIndivAdd) {
         {
           const d = storageIndivAdd[x]
-          console.log(d)
+          giveData.push(d)
         }
         console.log(x)
       }
+      console.log(inputData)
+      setSend(giveData)
+      console.log(send)
     })
   }
 
