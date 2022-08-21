@@ -116,11 +116,9 @@ localStorage.setItem('aaa',obj)
     console.log('useEffectが')
     // return window.removeEventListener('message', (first) => {
     //returnの値はunmount時に実行される
-    /* const needData = serve.data
-      setProt(needData) */
     parent.postMessage('ready', '*')
     // })
-  })
+  }, [])
 
   //必要な値をどれか教えてもらう
   useEffect(() => {
@@ -128,22 +126,29 @@ localStorage.setItem('aaa',obj)
       const demandedData: string[] = demand.data
       console.log('どっちのdemandedData')
       console.log(demandedData)
+      //第2引数に何も指定しなくてもuseStateの値が変わったら無限ループする
+      setGive(demandedData)
     })
     return window.removeEventListener('message', (demand) => {
       console.log(demand)
     })
-  })
+  }, [])
 
   /* useEffect(() => {
     window.addEventListener('click', (second) => {})
   }, [])
 */
   //useEffect
-  //第2引数がないときは初回レンダー時のみ実行
-  //[]が空の時は初回のレンダリングと毎回のレンダリング時に実行
+  //第2引数がないときは初回レンダー時のみ実行 ＊関数の結果が前回の呼び出し時と異なれば、レンダリングが発生する
+  //[]が空の時は初回のレンダリングと毎回のレンダリング時に実行(正確にはマウント時のみ実行)
   //[]にｘを入れるとｘが変わった時だけレンダリングの最後に実行
   //addEventListenerはremoveしないと溜まっていく（重複した処理
   //重複したaddEventListhnerはもう一度実行にならないと溜まってた分の処理が行われない
+  /*マウントは、最初にReactコンポーネントがDOMに出力されるときに行われる一連の処理。
+
+レンダリングは、ReactコンポーネントをDOMに出力するために様々な情報が読み込まれること。
+
+マウント処理の中にレンダリングは含まれるが、レンダリングはマウント時のみ動くわけではなく、アップデートされる際にも動く。*/
 
   return (
     <Container>
