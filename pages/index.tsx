@@ -124,6 +124,7 @@ localStorage.setItem('aaa',obj)
   useEffect(() => {
     window.addEventListener('message', (demand) => {
       const demandedData = demand.data
+      console.log('どっちのdemandedData')
       console.log(demandedData)
     })
   })
