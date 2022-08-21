@@ -70,7 +70,21 @@ localStorage.setItem('aaa',obj)
 */
 
   const [give, setGive] = useState([''])
-  const [once, setOnce] = useState(0)
+  const [send, setSend] = useState('')
+
+  // Map オブジェクトのサンプル
+  const sampleMap = new Map<string, number>()
+  sampleMap.set('ibaraki', 2840403)
+  sampleMap.set('kanagawa', 9221129)
+  sampleMap.set('gunma', 1915035)
+  sampleMap.set('saitama', 7331256)
+  sampleMap.set('chiba', 6267579)
+  sampleMap.set('tokyo', 13995469)
+  sampleMap.set('tochigi', 1910502)
+
+  // tokyo に対応する値を取得する（get() メソッドを使用）
+  const mapResult = sampleMap.get('tokyo')
+  console.log(mapResult)
 
   const storageIndivAdd = {
     nameKatakana: '佐藤太郎',
@@ -95,15 +109,22 @@ localStorage.setItem('aaa',obj)
     return console.log(1)
   }
 
+  //データを持っているか判別
   const dataConvert = () => {
     const giveData = console.log(give)
-    const inputData = give.map((x) => () => {
-      x
+    const inputData = give.map((x) => {
+      if (x in displayStorage) {
+        const value = setSend(x)
+      }
     })
     console.log(inputData)
   }
 
-  const displayStorage: Base = {
+  interface disAllay {
+    [index: string]: string
+  }
+
+  const displayStorage = {
     nameKatakana: '名前(フリガナ)',
     nameKanji: '名前',
     address: '住所',
