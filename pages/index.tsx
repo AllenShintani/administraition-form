@@ -69,7 +69,7 @@ var obj = JSON.stringify(obj);
 localStorage.setItem('aaa',obj)
 */
 
-  const [give, setGive] = useState([''])
+  const [give, setGive] = useState<(keyof info)[]>([])
   const [send, setSend] = useState('')
 
   // Map オブジェクトのサンプル
@@ -127,11 +127,15 @@ localStorage.setItem('aaa',obj)
     const giveData = console.log(give)
     const inputData = give.map((x) => {
       if (x in storageIndivAdd) {
+        {
+          const a = storageIndivAdd[x]
+        }
         console.log(x)
       }
     })
     console.log(inputData)
     console.log(send)
+    console.log(a)
   }
 
   interface disAllay {
@@ -159,7 +163,7 @@ localStorage.setItem('aaa',obj)
   //必要な値をどれか教えてもらう
   useEffect(() => {
     window.addEventListener('message', (demand) => {
-      const demandedData: string[] = demand.data
+      const demandedData: (keyof info)[] = demand.data
       console.log('どっちのdemandedData')
       console.log(demandedData)
       //第2引数に何も指定しなくてもuseStateの値が変わったら無限ループする
