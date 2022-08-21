@@ -118,6 +118,7 @@ localStorage.setItem('aaa',obj)
       }
     })
     console.log(inputData)
+    console.log(send)
   }
 
   interface disAllay {
