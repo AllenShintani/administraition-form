@@ -80,7 +80,6 @@ localStorage.setItem('aaa',obj)
 
   function ok() {
     console.log(give)
-    parent.postMessage('ready', '*')
     serveInfo()
   }
 
@@ -119,7 +118,7 @@ localStorage.setItem('aaa',obj)
     /* const needData = serve.data
       setProt(needData) */
     console.log(once)
-
+    parent.postMessage('ready', '*')
     // })
   })
 
