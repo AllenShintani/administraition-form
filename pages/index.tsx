@@ -98,8 +98,9 @@ localStorage.setItem('aaa',obj)
   const dataConvert = () => {
     const giveData = console.log(give)
     const inputData = give.map((x) => () => {
-      console.log(x)
+      x
     })
+    console.log(inputData)
   }
 
   const displayStorage: Base = {
@@ -139,8 +140,8 @@ localStorage.setItem('aaa',obj)
   }, [])
 */
   //useEffect
-  //第2引数がないときは初回レンダー時のみ実行 ＊関数の結果が前回の呼び出し時と異なれば、レンダリングが発生する
-  //[]が空の時は初回のレンダリングと毎回のレンダリング時に実行(正確にはマウント時のみ実行)
+  //第2引数がないときはレンダリング後に実行 ＊関数の結果が前回の呼び出し時と異なれば、レンダリングが発生する
+  //[]が空の時は初回のレンダリング(正確にはマウント時のみ実行)サイトによる！初回レンダー時のみって書いてあるのもある！
   //[]にｘを入れるとｘが変わった時だけレンダリングの最後に実行
   //addEventListenerはremoveしないと溜まっていく（重複した処理
   //重複したaddEventListhnerはもう一度実行にならないと溜まってた分の処理が行われない
