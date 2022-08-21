@@ -126,7 +126,7 @@ localStorage.setItem('aaa',obj)
   const dataConvert = () => {
     const giveData = console.log(give)
     const inputData = give.map((x) => {
-      if (x in displayStorage) {
+      if (x in storageIndivAdd) {
         console.log(x)
       }
     })
