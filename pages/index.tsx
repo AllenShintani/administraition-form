@@ -133,8 +133,13 @@ localStorage.setItem('aaa',obj)
       }
       console.log(inputData)
       setSend(giveData)
-      console.log(send)
     })
+    console.log(send)
+    dataPost()
+  }
+
+  const dataPost = () => {
+    console.log('6')
   }
 
   interface disAllay {
