@@ -71,6 +71,7 @@ localStorage.setItem('aaa',obj)
 
   const [give, setGive] = useState<(keyof info)[]>([])
   const [send, setSend] = useState([''])
+  const [test, setTest] = useState<number>(0)
 
   // Map オブジェクトのサンプル
   const sampleMap = new Map<string, number>()
@@ -129,7 +130,6 @@ localStorage.setItem('aaa',obj)
           const d = storageIndivAdd[x]
           giveData.push(d)
         }
-        console.log(x)
       }
       console.log(inputData)
       setSend(giveData)
@@ -139,7 +139,9 @@ localStorage.setItem('aaa',obj)
   }
 
   const dataPost = (giveData: string[]) => {
-    console.log('6')
+    console.log(test)
+    setTest(1)
+    console.log(test)
     console.log(giveData)
     setSend(giveData)
     console.log(send)
