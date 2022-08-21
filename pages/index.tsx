@@ -69,35 +69,37 @@ var obj = JSON.stringify(obj);
 localStorage.setItem('aaa',obj)
 */
 
-  const [give, setGive] = useState('')
+  const [give, setGive] = useState([''])
   const [once, setOnce] = useState(0)
 
-  if (once === 0) {
-    setOnce(1)
+  const storageIndivAdd = {
+    nameKatakana: '佐藤太郎',
+    nameKanji: 'サトウタロウ',
+    addres: '東京都文京区本郷7丁目3-1',
+    email: 'aaaa@gmail.com',
+    phone: '01204444445',
+    phoneAdvance: '012',
+    phoneCenter: '0444',
+    phoneBack: '4445',
   }
 
   //postMessageは関数の中じゃないと無理。addEventLisnerも。
+  //addEventLisnerは前回のスナップショットのpostMessageを受け取れない。
 
   function ok() {
     console.log(give)
-    serveInfo()
+    dataConvert()
   }
 
   function noAndOther() {
     return console.log(1)
   }
 
-  const serveInfo = () => {
-    window.addEventListener('message', (first) => {
-      const needData = first.data
-      setGive(needData)
-      console.log(needData)
-    })
-    dataConvert()
-  }
-
   const dataConvert = () => {
-    console.log(give)
+    const giveData = console.log(give)
+    const inputData = give.map((x) => () => {
+      console.log(x)
+    })
   }
 
   const displayStorage: Base = {
@@ -111,7 +113,6 @@ localStorage.setItem('aaa',obj)
 
   //最初に準備できたよって伝える
   useEffect(() => {
-    console.log(once)
     console.log('useEffectが')
     // return window.removeEventListener('message', (first) => {
     //returnの値はunmount時に実行される
@@ -121,24 +122,15 @@ localStorage.setItem('aaa',obj)
     // })
   })
 
+  //必要な値をどれか教えてもらう
   useEffect(() => {
     window.addEventListener('message', (demand) => {
-      const demandedData = demand.data
+      const demandedData: string[] = demand.data
       console.log('どっちのdemandedData')
       console.log(demandedData)
+      setGive(demandedData)
     })
   })
-
-  const storageIndivAdd = {
-    nameKatakana: '佐藤太郎',
-    nameKanji: 'サトウタロウ',
-    addres: '東京都文京区本郷7丁目3-1',
-    email: 'aaaa@gmail.com',
-    phone: '01204444445',
-    phoneAdvance: '012',
-    phoneCenter: '0444',
-    phoneBack: '4445',
-  }
 
   /* useEffect(() => {
     window.addEventListener('click', (second) => {})
