@@ -23,7 +23,7 @@ const Grid = styled.div`
 type Base = {
   nameKatakana?: string
   nameKanji?: string
-  address?: string
+  addres?: string
   zipCode?: string
   email?: string
   phoneAdvance?: string
@@ -86,7 +86,18 @@ localStorage.setItem('aaa',obj)
   const mapResult = sampleMap.get('tokyo')
   console.log(mapResult)
 
-  const storageIndivAdd = {
+  interface info {
+    nameKatakana: string
+    nameKanji: string
+    addres: string
+    email: string
+    phone: string
+    phoneAdvance: string
+    phoneCenter: string
+    phoneBack: string
+  }
+
+  const storageIndivAdd: info = {
     nameKatakana: '佐藤太郎',
     nameKanji: 'サトウタロウ',
     addres: '東京都文京区本郷7丁目3-1',
@@ -96,6 +107,8 @@ localStorage.setItem('aaa',obj)
     phoneCenter: '0444',
     phoneBack: '4445',
   }
+  const a = 'email'
+  const value = storageIndivAdd
 
   //postMessageは関数の中じゃないと無理。addEventLisnerも。
   //addEventLisnerは前回のスナップショットのpostMessageを受け取れない。
@@ -114,7 +127,7 @@ localStorage.setItem('aaa',obj)
     const giveData = console.log(give)
     const inputData = give.map((x) => {
       if (x in displayStorage) {
-        const value = setSend(x)
+        console.log(x)
       }
     })
     console.log(inputData)
