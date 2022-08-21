@@ -69,10 +69,9 @@ var obj = JSON.stringify(obj);
 localStorage.setItem('aaa',obj)
 */
 
-  const [prot, setProt] = useState('')
+  const [give, setGive] = useState('')
   const [once, setOnce] = useState(0)
 
-  //初回に準備ができたこと教える
   if (once === 0) {
     setOnce(1)
   }
@@ -80,9 +79,8 @@ localStorage.setItem('aaa',obj)
   //postMessageは関数の中じゃないと無理。addEventLisnerも。
 
   function ok() {
-    console.log(prot)
+    console.log(give)
     parent.postMessage('ready', '*')
-
     serveInfo()
   }
 
@@ -91,22 +89,16 @@ localStorage.setItem('aaa',obj)
   }
 
   const serveInfo = () => {
-    console.log('アロー関数だよ')
     window.addEventListener('message', (first) => {
       const needData = first.data
-      setProt(needData)
+      setGive(needData)
       console.log(needData)
     })
-    postData()
+    dataConvert()
   }
 
-  const postData = () => {
-    console.log('postData')
-    window.addEventListener('message', (first) => {
-      const needData = first.data
-      setProt(needData)
-      console.log(needData)
-    })
+  const dataConvert = () => {
+    console.log(give)
   }
 
   const displayStorage: Base = {
@@ -118,7 +110,7 @@ localStorage.setItem('aaa',obj)
     phoneAdvance: '電話番号',
   }
 
-  //最初にデータ送られる
+  //最初に準備できたよって伝える
   useEffect(() => {
     console.log(once)
     console.log('useEffectが')
@@ -127,8 +119,20 @@ localStorage.setItem('aaa',obj)
     /* const needData = serve.data
       setProt(needData) */
     console.log(once)
+
     // })
   })
+
+  const storageIndivAdd = {
+    nameKatakana: 'シンタニアレン',
+    nameKanji: '新谷アレン',
+    addres: '東京都文京区本郷7丁目3-1',
+    email: 'aaaa@gmail.com',
+    phone: '01204444445',
+    phoneAdvance: '012',
+    phoneCenter: '0444',
+    phoneBack: '4445',
+  }
 
   /* useEffect(() => {
     window.addEventListener('click', (second) => {})
