@@ -133,14 +133,14 @@ localStorage.setItem('aaa',obj)
       }
       console.log(inputData)
       setSend(giveData)
-      console.log(send)
     })
-    console.log(send)
+
     return dataPost(giveData)
   }
 
   const dataPost = (giveData: string[]) => {
     console.log('6')
+    console.log(giveData)
     setSend(giveData)
     console.log(send)
     window.postMessage
