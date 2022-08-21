@@ -107,8 +107,6 @@ localStorage.setItem('aaa',obj)
     phoneCenter: '0444',
     phoneBack: '4445',
   }
-  const a = 'email'
-  const value = storageIndivAdd
 
   //postMessageは関数の中じゃないと無理。addEventLisnerも。
   //addEventLisnerは前回のスナップショットのpostMessageを受け取れない。
@@ -128,14 +126,12 @@ localStorage.setItem('aaa',obj)
     const inputData = give.map((x) => {
       if (x in storageIndivAdd) {
         {
-          const a = storageIndivAdd[x]
+          const d = storageIndivAdd[x]
+          console.log(d)
         }
         console.log(x)
       }
     })
-    console.log(inputData)
-    console.log(send)
-    console.log(a)
   }
 
   interface disAllay {
