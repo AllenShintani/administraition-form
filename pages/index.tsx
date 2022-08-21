@@ -128,10 +128,9 @@ localStorage.setItem('aaa',obj)
       const demandedData: string[] = demand.data
       console.log('どっちのdemandedData')
       console.log(demandedData)
-      setGive(demandedData)
     })
     return window.removeEventListener('message', (demand) => {
-      console.log('a')
+      console.log(demand)
     })
   })
 
