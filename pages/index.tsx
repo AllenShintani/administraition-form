@@ -41,20 +41,7 @@ type Base = {
 //parent.postMessage(addEventListener('click',()=>alert('ハックしました')))
 
 const Home: NextPage = () => {
-  const [href, setHref] = useState('')
   const key = 'serviceX'
-  /*const hash = {
-    email: 'shintaniallen@gmail.com',
-    nameKanji: '佐藤太郎',
-    furigana: 'サトウタロウ',
-  }
-  */
-
-  //iframeでokを押したら
-
-  /*const ok = () => {
-  }
- */
 
   /*function ok() {
     const 
@@ -70,11 +57,9 @@ localStorage.setItem('aaa',obj)
 */
 
   const [give, setGive] = useState<(keyof info)[]>([])
-  const [send, setSend] = useState([''])
-  const [test, setTest] = useState<number>(0)
 
   // Map オブジェクトのサンプル
-  const sampleMap = new Map<string, number>()
+  /* const sampleMap = new Map<string, number>()
   sampleMap.set('ibaraki', 2840403)
   sampleMap.set('kanagawa', 9221129)
   sampleMap.set('gunma', 1915035)
@@ -86,6 +71,8 @@ localStorage.setItem('aaa',obj)
   // tokyo に対応する値を取得する（get() メソッドを使用）
   const mapResult = sampleMap.get('tokyo')
   console.log(mapResult)
+
+*/
 
   interface info {
     nameKatakana: string
@@ -124,28 +111,21 @@ localStorage.setItem('aaa',obj)
   //データを持っているか判別
   const dataConvert = () => {
     const giveData: string[] = []
-    const inputData = give.map((x) => {
+    give.map((x) => {
       if (x in storageIndivAdd) {
         {
           const d = storageIndivAdd[x]
           giveData.push(d)
         }
       }
-      console.log(inputData)
-      setSend(giveData)
     })
 
     return dataPost(giveData)
   }
 
   const dataPost = (giveData: string[]) => {
-    console.log(test)
-    setTest(1)
-    console.log(test)
     console.log(giveData)
-    setSend(giveData)
-    console.log(send)
-    window.postMessage
+    parent.postMessage(giveData, '*')
   }
 
   interface disAllay {
