@@ -129,7 +129,7 @@ localStorage.setItem('aaa',obj)
   useEffect(() => {
     // return window.removeEventListener('message', (first) => {
     //returnの値はunmount時に実行される
-    parent.postMessage('ready', '*')
+    parent.postMessage({ type: String, val: 'ready' }, '*')
     // })
   }, [])
 
@@ -142,7 +142,6 @@ localStorage.setItem('aaa',obj)
     })
     return window.removeEventListener('message', (demand) => {
       const demandedData: (keyof info)[] = demand.data
-      //第2引数に何も指定しなくてもuseStateの値が変わったら無限ループする
       setGive(demandedData)
     })
   }, [])
