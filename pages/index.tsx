@@ -20,16 +20,7 @@ const Grid = styled.div`
   max-width: 800px;
   margin-top: 3rem;
 `
-type Base = {
-  nameKatakana?: string
-  nameKanji?: string
-  addres?: string
-  zipCode?: string
-  email?: string
-  phoneAdvance?: string
-  phoneCenter?: string
-  phoneBack?: string
-}
+
 ;`
   @media (max-width: 600px) {
     flex-direction: column;
@@ -41,8 +32,6 @@ type Base = {
 //parent.postMessage(addEventListener('click',()=>alert('ハックしました')))
 
 const Home: NextPage = () => {
-  const key = 'serviceX'
-
   /*function ok() {
     const 
     parent.postMessage(addEventListener('click', () => alert('aaaaa')))
@@ -124,12 +113,7 @@ localStorage.setItem('aaa',obj)
   }
 
   const dataPost = (giveData: string[]) => {
-    console.log(giveData)
     parent.postMessage(giveData, '*')
-  }
-
-  interface disAllay {
-    [index: string]: string
   }
 
   const displayStorage = {
@@ -143,7 +127,6 @@ localStorage.setItem('aaa',obj)
 
   //最初に準備できたよって伝える
   useEffect(() => {
-    console.log('useEffectが')
     // return window.removeEventListener('message', (first) => {
     //returnの値はunmount時に実行される
     parent.postMessage('ready', '*')
@@ -154,13 +137,13 @@ localStorage.setItem('aaa',obj)
   useEffect(() => {
     window.addEventListener('message', (demand) => {
       const demandedData: (keyof info)[] = demand.data
-      console.log('どっちのdemandedData')
-      console.log(demandedData)
       //第2引数に何も指定しなくてもuseStateの値が変わったら無限ループする
       setGive(demandedData)
     })
     return window.removeEventListener('message', (demand) => {
-      console.log(demand)
+      const demandedData: (keyof info)[] = demand.data
+      //第2引数に何も指定しなくてもuseStateの値が変わったら無限ループする
+      setGive(demandedData)
     })
   }, [])
 
