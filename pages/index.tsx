@@ -129,7 +129,7 @@ localStorage.setItem('aaa',obj)
   useEffect(() => {
     // return window.removeEventListener('message', (first) => {
     //returnの値はunmount時に実行される
-    parent.postMessage({ type: String, val: 'ready' }, '*')
+    parent.postMessage('ready', '*')
     // })
   }, [])
 
