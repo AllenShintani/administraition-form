@@ -88,6 +88,7 @@ localStorage.setItem('aaa',obj)
   //addEventLisnerは前回のスナップショットのpostMessageを受け取れない。
   function ok() {
     console.log(give)
+    console.log(1)
     dataConvert()
   }
 
@@ -99,8 +100,10 @@ localStorage.setItem('aaa',obj)
   const dataConvert = () => {
     const giveData: string[] = []
     give.map((x) => {
+      console.log(2)
       if (x in storageIndivAdd) {
         {
+          console.log(3)
           const d = storageIndivAdd[x]
           giveData.push(d)
         }
@@ -111,6 +114,7 @@ localStorage.setItem('aaa',obj)
   }
 
   const dataPost = (giveData: string[]) => {
+    console.log(4)
     parent.postMessage(giveData, '*')
   }
 
@@ -125,6 +129,7 @@ localStorage.setItem('aaa',obj)
 
   //最初に準備できたよって伝える
   useEffect(() => {
+    console.log(5)
     // return window.removeEventListener('message', (first) => {
     //returnの値はunmount時に実行される
     parent.postMessage('ready', '*')
@@ -136,6 +141,7 @@ localStorage.setItem('aaa',obj)
     window.addEventListener('message', (demand) => {
       const demandedData: (keyof info)[] = demand.data
       console.log(demandedData)
+      console.log(6)
       //第2引数に何も指定しなくてもuseStateの値が変わったら無限ループする
       setGive(demandedData)
     })
