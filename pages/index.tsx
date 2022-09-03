@@ -137,6 +137,7 @@ localStorage.setItem('aaa',obj)
   useEffect(() => {
     window.addEventListener('message', (demand) => {
       const demandedData: (keyof info)[] = demand.data
+      console.log(demandedData)
       //第2引数に何も指定しなくてもuseStateの値が変わったら無限ループする
       setGive(demandedData)
     })
