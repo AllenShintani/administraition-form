@@ -84,7 +84,6 @@ localStorage.setItem('aaa',obj)
     phoneCenter: '0444',
     phoneBack: '4445',
   }
-
   //postMessageは関数の中じゃないと無理。addEventLisnerも。
   //addEventLisnerは前回のスナップショットのpostMessageを受け取れない。
   function ok() {
