@@ -87,7 +87,6 @@ localStorage.setItem('aaa',obj)
 
   //postMessageは関数の中じゃないと無理。addEventLisnerも。
   //addEventLisnerは前回のスナップショットのpostMessageを受け取れない。
-
   function ok() {
     console.log(give)
     dataConvert()
